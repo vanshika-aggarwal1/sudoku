@@ -7,6 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const apikey = process.env.MY_API_KEY;
 
+app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.json());
