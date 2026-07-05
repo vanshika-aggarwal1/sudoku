@@ -13,7 +13,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 app.get("/", async (req, res) => {
-    res.render("index.ejs");
+    res.render("index");
 });
 let sud = [[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 
@@ -47,7 +47,7 @@ app.get("/next/:difficulty", async (req, res) => {
                     sol[i][j]=Number(data.solution[i*9+j]);
                 }
             }
-        res.render("sudoku.ejs", {difficulty: difficulty, sud: sud });
+        res.render("sudoku", {difficulty: difficulty, sud: sud });
     } catch(err) {
         console.log(err);
         res.status(500).send("Failed to fetch Sudoku");
@@ -79,7 +79,7 @@ app.post("/hint", async(req, res) => {
 })
 
 app.get("/reset", async(req, res) => {
-    res.render("sudoku.ejs", {difficulty : difficulty, sud: sud});
+    res.render("sudoku", {difficulty : difficulty, sud: sud});
 })
 
 app.listen(port, ()=>{
