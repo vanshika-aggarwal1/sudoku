@@ -1,0 +1,43 @@
+html, body{
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(4, 4, 65);
+}
+
+.navbar{
+    height: 50vh;
+}
+
+.navbar>.container{
+    justify-content: center;
+}
+
+#title{
+    color: aliceblue;
+    font-size: 500%;
+    
+}
+
+.col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 50%;
+    margin: 5%;
+}
+
+.card-body{
+    font-size: 150%;
+    font-weight: 600;
+}
+
+button{
+    box-shadow: 4px 4px 10px rgb(94, 171, 190);
+}

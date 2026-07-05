@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= difficulty %></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    
+    <link rel="stylesheet" href="/css/sudoku-style.css" />
+  </head>
+  <body>
+    <div id="heading"><%= difficulty.toUpperCase() %></div>
+    <div id="sudoku-box">
+
+      <div class="container text-center">
+
+        <% for( let l = 0; l < 3; l++ ) { %>
+        <div class="row" id="bigrow">
+
+          <% for( let k = 0; k < 3; k++ ) { %>
+          <div class="col" id="bigcol">
+
+            <div class="container text-center" >
+
+              <% for( let j = 0; j < 3; j++ ) { %>
+                <div class="row" id="smrow">
+                <% for( let i = 0; i < 3; i++ ) { %>
+                  <div class="col" id="smcol">
+                    <input class="text-center" 
+                    maxlength="1"
+                    inputmode="numeric"
+                    type="text" 
+                    data-row=<%= l*3+j %> 
+                    data-col=<%= k*3+i %> 
+                    size=1 
+                    value=<%= sud[l*3+j][k*3+i] === 0 ? '' : sud[l*3+j][k*3+i] %> 
+                    <%= sud[l*3+j][k*3+i] === 0 ? '' : 'disabled' %> >
+                  </div>
+                <% } %>
+              </div>
+              <% } %>
+              
+            </div>
+          </div>
+          <% } %>
+        </div>
+        <% } %>
+        
+      </div>
+    </div>
+    <div class="container text-center">
+    <div class="buttons row">
+      <button id="hint" class="but col" onclick = "hint()">Hint</button>
+      <button id="check" class="but col" onclick="checkBoard()">Check Board</button>
+      <button id="reset" class="but col" onclick="reset()">Reset</button>
+    </div>
+    </div>
+    
+  </body>
+
+  <script src="/js/sudoku.js"></script>
+</html>
